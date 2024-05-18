@@ -39,12 +39,22 @@ result = model.transcribe("hellothere.mp3")
 transcribedText = result["text"]
 print(transcribedText)
 words = clean_string(transcribedText)
-numsListToDisplay = get_indices(words)
+print(words)
 
-for i in numsListToDisplay:
-    letter = mpimg.imread('aslImages/' + i + '.png')
-    plt.imshow(letter)
-    plt.show()
+numsListToDisplay = get_indices(words)
+print(numsListToDisplay)
+for word in numsListToDisplay:
+    for l in word:
+        letter = mpimg.imread('aslImages/' + str(l) + '.png')
+        plt.figure()
+        plt.imshow(letter)
+        #plt.imshow(letter)
+        #plt.show()
+        #show space
+        print("space")
+plt.show()
+plt.close()
+
 #create list of words using split
 
 #for loop for each word
